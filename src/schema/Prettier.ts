@@ -1,51 +1,39 @@
 export type PrettierRC = PrettierOptions | PrettierOverrides;
 
-export interface PrettierOverrides {
-	/**
-	 * Provide a list of patterns to override prettier configuration.
-	 */
-	overrides: {
-		/**
-		 * Include these files in this override.
-		 */
-		files: string | string[];
-
-		/**
-		 * Exclude these files from this override.
-		 */
-		excludeFiles?: string | string[];
-
-		/**
-		 * The options to apply for this override.
-		 */
-		options?: PrettierOptions;
-	}[];
-}
-
 export interface PrettierOptions {
 	/**
 	 * Include parentheses around a sole arrow function parameter.
+	 *
+	 * @defaultValue `always`
 	 */
 	arrowParens?: PrettierArrowParens;
 
 	/**
 	 * Print spaces between braces.
+	 *
+	 * @defaultValue `true`
 	 */
 	bracketSpacing?: boolean;
 
 	/**
 	 * Print (to stderr) where a cursor at the given position would move to after formatting. This
 	 * option cannot be used with `--range-start` and `--range-end`.
+	 *
+	 * @defaultValue `-1`
 	 */
 	cursorOffset?: number;
 
 	/**
 	 * Control how Prettier formats quoted code embedded in the file.
+	 *
+	 * @defaultValue `auto`
 	 */
 	embeddedLanguageFormatting?: PrettierEmbeddedLanguageFormat;
 
 	/**
 	 * Which end of line characters to apply.
+	 *
+	 * @defaultValue `lf`
 	 */
 	endOfLine?: PrettierEndOfLine;
 
@@ -56,21 +44,29 @@ export interface PrettierOptions {
 
 	/**
 	 * How to handle whitespaces in HTML.
+	 *
+	 * @defaultValue `css`
 	 */
 	htmlWhitespaceSensitivity?: PrettierHTMLWhitespace;
 
 	/**
 	 * Insert `@format` pragma into file's first docblock comment.
+	 *
+	 * @defaultValue `false`
 	 */
 	insertPragam?: boolean;
 
 	/**
 	 * Put > on the last line instead of at a new line.
+	 *
+	 * @defaultValue `false`
 	 */
 	jsxBracketSameLine?: boolean;
 
 	/**
 	 * Use single quotes in JSX.
+	 *
+	 * @defaultValue `false`
 	 */
 	jsxSingleQuote?: boolean;
 
@@ -93,22 +89,30 @@ export interface PrettierOptions {
 
 	/**
 	 * The line length where Prettier will try wrap.
+	 *
+	 * @defaultValue `80`
 	 */
 	printWidth?: number;
 
 	/**
 	 * How to wrap prose.
+	 *
+	 * @defaultValue `preserve`
 	 */
 	proseWrap?: PrettierProseWrap;
 
 	/**
 	 * Change when properties in objects are quoted.
+	 *
+	 * @defaultValue `as-needed`
 	 */
 	quoteProps?: PrettierQuoteProps;
 
 	/**
 	 * Format code ending at a given character offset (exclusive). The range will extend forwards
 	 * to the end of the selected statement. This option cannot be used with `--cursor-offset`.
+	 *
+	 * @defaultValue `null`
 	 */
 	rangeEnd?: number;
 
@@ -116,42 +120,58 @@ export interface PrettierOptions {
 	 * Format code starting at a given character offset. The range will extend backwards to the
 	 * start of the first line containing the selected statement. This option cannot be used with
 	 * `--cursor-offset`.
+	 *
+	 * @defaultValue `0`
 	 */
 	rangeStart?: number;
 
 	/**
 	 * Require either '@prettier' or '@format' to be present in the file's first docblock comment
 	 * in order for it to be formatted.
+	 *
+	 * @defaultValue `false`
 	 */
 	requirePragma?: boolean;
 
 	/**
 	 * Print semicolons.
+	 *
+	 * @defaultValue `true`
 	 */
 	semi?: boolean;
 
 	/**
 	 * Use single quotes instead of double quotes.
+	 *
+	 * @defaultValue `false`
 	 */
 	singleQuote?: boolean;
 
 	/**
 	 * Number of spaces per indentation level.
+	 *
+	 * @defaultValue `2`
 	 */
 	tabWidth?: number;
 
 	/**
 	 * Print trailing commas wherever possible when multi-line.
+	 *
+	 * @defaultValue `es5`
 	 */
 	trailingComma?: PrettierTrailingComma;
 
 	/**
 	 * Indent with tabs instead of spaces.
+	 *
+	 * @defaultValue `false`
 	 */
 	useTabs?: boolean;
 
 	/**
 	 * Indent script and style tags in Vue files.
+	 *
+	 * @defaultValue `false`
 	 */
 	vueIndentScriptAndStyle?: boolean;
 }
@@ -366,4 +386,26 @@ export enum PrettierTrailingComma {
 	 * Trailing commas wherever possible (including function arguments).
 	 */
 	All = 'all'
+}
+
+export interface PrettierOverrides {
+	/**
+	 * Provide a list of patterns to override prettier configuration.
+	 */
+	overrides: {
+		/**
+		 * Include these files in this override.
+		 */
+		files: string | string[];
+
+		/**
+		 * Exclude these files from this override.
+		 */
+		excludeFiles?: string | string[];
+
+		/**
+		 * The options to apply for this override.
+		 */
+		options?: PrettierOptions;
+	}[];
 }
