@@ -1,2 +1,2 @@
-export * from './nest-cli';
-export * from './prettierrc';
+export * from './NestCLI';
+export * from './Prettier';
